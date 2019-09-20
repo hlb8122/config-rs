@@ -164,7 +164,7 @@ impl Value {
             ValueKind::Float(value) => Ok(value != 0.0),
 
             ValueKind::String(ref value) => {
-                match value.to_lowercase().as_ref() {
+                match value.to_string().as_ref() {
                     "1" | "true" | "on" | "yes" => Ok(true),
                     "0" | "false" | "off" | "no" => Ok(false),
 
@@ -203,7 +203,7 @@ impl Value {
             ValueKind::Integer(value) => Ok(value),
 
             ValueKind::String(ref s) => {
-                match s.to_lowercase().as_ref() {
+                match s.to_string().as_ref() {
                     "true" | "on" | "yes" => Ok(1),
                     "false" | "off" | "no" => Ok(0),
                     _ => {
@@ -248,7 +248,7 @@ impl Value {
             ValueKind::Float(value) => Ok(value),
 
             ValueKind::String(ref s) => {
-                match s.to_lowercase().as_ref() {
+                match s.to_string().as_ref() {
                     "true" | "on" | "yes" => Ok(1.0),
                     "false" | "off" | "no" => Ok(0.0),
                     _ => {
